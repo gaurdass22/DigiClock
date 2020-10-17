@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="clock.css">
+<head>
+    <title>My Digital Clock</title>
+</head>
+<body>
+    <div id="realtime">
+        <h2>Digital Clock</h2>
+        <div id="time">
+        <div class="hrs"><label id="hrs"></label>
+        <label>Hours</label></div>
+        <div class="mint"><label id="mint"></label>
+            <label>Minutes</label></div>
+        <div class="sec"><label id="sec"></label>
+            <label>Seconds</label></div>
+        </div>
+    </div>
+    <div id="datetime">
+        <h2>Date</h2>
+        <div id="datetime">
+            <div class="dd"><label id="dd"></label>
+                <label>Date</label></div>
+            <div class="mm"><label id="mm"></label>
+                <label>Month</label></div>
+            <div class="yy"><label id="yy"></label>
+                <label>Year</label></div>
+
+        </div>
+    </div>
+
+<script type="text/javascript">
+        function realtime() {
+    var hr = document.getElementById('hrs');
+    var mint = document.getElementById('mint');
+    var sec = document.getElementById('sec');
+
+    var h = new Date().getHours();
+    var m = new Date().getMinutes();
+    var s = new Date().getSeconds();
+
+    h = (h < 10) ? "0" + h : h
+    m = (m < 10) ? "0" + m : m
+    s = (s < 10) ? "0" + s : s 
+
+    hr.innerHTML = h;
+    mint.innerHTML = m;
+    sec.innerHTML = s;
+
+    var dd = document.getElementById('dd');
+    var mm = document.getElementById('mm');
+    var yy = document.getElementById('yy');
+
+    var d = new Date().getDate();
+    var m = new Date().getMonth() + 1;
+    var y = new Date().getFullYear();
+
+    d = (d < 10) ? "0" + d : d
+    m = (m < 10) ? "0" + m : m
+    y = (y < 10) ? "0" + y : y
+
+    dd.innerHTML = d;
+    mm.innerHTML = m;
+    yy.innerHTML = y;
+
+}
+
+var interval = setInterval(realtime, 0);
+var dateInterval = setInterval(datetime, 0);
+
+    
+</script>
+</body>
+</html>
